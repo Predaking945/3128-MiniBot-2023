@@ -29,7 +29,12 @@ public class CmdArcadeDrive extends CommandBase {
 
     @Override 
     public void execute(){
-        m_drive.setPower(m_joystick.getY() + m_joystick.getX() , m_joystick.getY() - m_joystick.getX());
+        if (m_joystick.getY() >= -0.05){
+            m_drive.setPower(m_joystick.getY() + m_joystick.getX() , m_joystick.getY() - m_joystick.getX());
+        }
+        else{
+            m_drive.setPower(m_joystick.getY() - m_joystick.getX() , m_joystick.getY() + m_joystick.getX());
+        }
     }
 
     @Override
